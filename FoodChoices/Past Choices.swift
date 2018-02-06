@@ -38,36 +38,11 @@ class PastChoice: Object {
     
     func deleteChoices() {
         let realm = try! Realm()
+        let allChoices = realm.objects(PastChoice.self)
         print("Deleting Chices")
         try! realm.write {
-            realm.deleteAll()
+            realm.delete(allChoices)
         }
     }
 }
-
-//class AllChoice: Object {
-//
-//    let integerList = List<PastChoice>()
-//
-//    func choiceMade(choice:Int) {
-//        let realm = try! Realm()
-//        let pastChoice = PastChoice()
-//        pastChoice.randomChoice = choice
-//
-//        try! realm.write {
-//            integerList.append(pastChoice)
-//        }
-//        choicesMade()
-//    }
-//
-//    func  choicesMade() {
-//        print("inside choicesMade()")
-//        let realm = try! Realm()
-//        let allChoices = realm.objects(AllChoice.self)
-//
-//        for each in allChoices {
-//            print("Here are the choices \(each)")
-//        }
-//    }
-//}
 
