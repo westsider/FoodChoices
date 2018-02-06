@@ -6,9 +6,9 @@
 //  Copyright © 2018 Warren Hansen. All rights reserved.
 //
 
-// MARK: - TODO delete onnly this realm object
-// MARK: - TODO - add new dishes
 // MARK: - TODO - refactor model
+// MARK: - TODO - Show used choices
+// MARK: - TODO - add new dishes
 
 import UIKit
 import RealmSwift
@@ -61,6 +61,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         arrayFood.append(oneDish)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @IBAction func chooseAction(_ sender: Any) {
         randomChoice()
     }
@@ -73,6 +77,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = arrayFood[indexPath.row].restaurant
         cell.detailTextLabel?.text = arrayFood[indexPath.row].dish
+        
+        let allNums = PastChoice().allChoices()
+        if allNums.contains(indexPath.row) {
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
         return cell
     }
     
