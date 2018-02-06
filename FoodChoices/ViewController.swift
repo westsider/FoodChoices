@@ -7,23 +7,16 @@
 //
 
 // MARK: - TODO - refactor model
-// MARK: - TODO - Show used choices
 // MARK: - TODO - add new dishes
 
 import UIKit
 import RealmSwift
-
-struct HealthyFood {
-    var restaurant = ""
-    var dish = ""
-}
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
     var arrayFood:[HealthyFood] = []
-    
     var oneDish = HealthyFood()
     
     override func viewDidLoad() {
@@ -31,34 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         title = "Good Local Food"
         self.becomeFirstResponder() // To get shake gesture
-        
-        oneDish = HealthyFood(restaurant: "Senior G’s", dish: "Grilled Fish Tacos") //Senior G’s Fish Tacos, chicken + veggies, healthy Start Burrito
-        
-        arrayFood.append(oneDish)
-        oneDish.dish = "Chicken + Veggies"
-        arrayFood.append(oneDish)
-        oneDish.dish = "Healthy Start Burrito"
-        arrayFood.append(oneDish)
-        
-        oneDish.restaurant = "Mendocino Farms"
-        oneDish.dish = "Avocado and Quinoa Ensalada + Chicken"
-        arrayFood.append(oneDish)
-        oneDish.dish = "Mendo's Chicken Cobb Salad"
-        arrayFood.append(oneDish)
-        
-        oneDish.restaurant = "Playa Provisions"
-        oneDish.dish = "Salmon (eve)"
-        arrayFood.append(oneDish)
-        oneDish.dish = "Grilled Fish Tacos"
-        arrayFood.append(oneDish)
-        
-        oneDish.restaurant = "Whole Foods"
-        oneDish.dish = "Turkey Meatloaf + Vegetables"
-        arrayFood.append(oneDish)
-        oneDish.dish = "Salad with Chicken"
-        arrayFood.append(oneDish)
-        oneDish.dish = "Salad with Tuna"
-        arrayFood.append(oneDish)
+        arrayFood = BasicFood().setUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,10 +56,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func randomChoice() {
-  
         let current = PastChoice().allChoices()
         var next: Int
-        
         repeat {
             next = Int(arc4random_uniform(UInt32(arrayFood.count)))
             print(next)
@@ -104,19 +68,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             PastChoice().deleteChoices()
             next = Int(arc4random_uniform(UInt32(arrayFood.count)))
         }
-       
         PastChoice().choiceMade(choice: Int(next))
         segueToResults(choice: Int(next))
     }
-    
-    // We are willing to become first responder to get shake motion
+
     override var canBecomeFirstResponder: Bool {
-        get {
-            return true
-        }
+        get { return true }
     }
-    
-    // Enable detection of shake motion
+
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             print("Why are you shaking me?")
@@ -130,7 +89,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         debugPrint(oneDish)
         navigationController?.pushViewController(myVC, animated: true)
     }
-
-
 }
 

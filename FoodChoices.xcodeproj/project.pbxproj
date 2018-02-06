@@ -15,6 +15,7 @@
 		0D1BEDC5202917FB0052FD56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1BEDC3202917FB0052FD56 /* LaunchScreen.storyboard */; };
 		0D1BEDCD202921250052FD56 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1BEDCC202921250052FD56 /* ResultsViewController.swift */; };
 		0D1BEDCF20292B3F0052FD56 /* Past Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1BEDCE20292B3F0052FD56 /* Past Choices.swift */; };
+		0D48942E202947B300560CD3 /* Food Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48942D202947B300560CD3 /* Food Model.swift */; };
 		51F48E750F42F7397F9389FB /* Pods_FoodChoices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2420A0F0591D4BCF2C978DC3 /* Pods_FoodChoices.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		0D1BEDC6202917FB0052FD56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D1BEDCC202921250052FD56 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0D1BEDCE20292B3F0052FD56 /* Past Choices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Past Choices.swift"; sourceTree = "<group>"; };
+		0D48942D202947B300560CD3 /* Food Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food Model.swift"; sourceTree = "<group>"; };
 		2420A0F0591D4BCF2C978DC3 /* Pods_FoodChoices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodChoices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270E3DFCBA9D85156596EE0 /* Pods-FoodChoices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodChoices.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodChoices/Pods-FoodChoices.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,8 +71,8 @@
 			children = (
 				0D1BEDBB202917FB0052FD56 /* Main.storyboard */,
 				0D1BEDB9202917FB0052FD56 /* ViewController.swift */,
-				0D1BEDCE20292B3F0052FD56 /* Past Choices.swift */,
 				0D1BEDCC202921250052FD56 /* ResultsViewController.swift */,
+				0D48942C2029477000560CD3 /* model */,
 				0D1BEDC1202917FB0052FD56 /* Assets.xcassets */,
 				0D1BEDC3202917FB0052FD56 /* LaunchScreen.storyboard */,
 				0D1BEDC6202917FB0052FD56 /* Info.plist */,
@@ -78,6 +80,15 @@
 				0D1BEDB7202917FB0052FD56 /* AppDelegate.swift */,
 			);
 			path = FoodChoices;
+			sourceTree = "<group>";
+		};
+		0D48942C2029477000560CD3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0D1BEDCE20292B3F0052FD56 /* Past Choices.swift */,
+				0D48942D202947B300560CD3 /* Food Model.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		B4CDDC8C34A5E5CC70109253 /* Pods */ = {
@@ -230,6 +241,7 @@
 			files = (
 				0D1BEDC0202917FB0052FD56 /* FoodChoices.xcdatamodeld in Sources */,
 				0D1BEDBA202917FB0052FD56 /* ViewController.swift in Sources */,
+				0D48942E202947B300560CD3 /* Food Model.swift in Sources */,
 				0D1BEDCF20292B3F0052FD56 /* Past Choices.swift in Sources */,
 				0D1BEDB8202917FB0052FD56 /* AppDelegate.swift in Sources */,
 				0D1BEDCD202921250052FD56 /* ResultsViewController.swift in Sources */,
